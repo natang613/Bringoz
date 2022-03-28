@@ -32,9 +32,9 @@ class BringozApplicationTests {
 
     @Test
     void getDriver() throws Exception {
-        String id = "";
-        String status = "";
-        String name = "";
+        String id;
+        String status;
+        String name;
         try {
             MockHttpServletResponse content = postTestDriver("Fred", 1000, Optional.empty(), Optional.empty());
             JSONObject jsonObj = new JSONObject(content.getContentAsString());
@@ -77,8 +77,7 @@ class BringozApplicationTests {
     public static String asJsonString(final Object obj) {
         try {
             final ObjectMapper mapper = new ObjectMapper();
-            final String jsonContent = mapper.writeValueAsString(obj);
-            return jsonContent;
+            return mapper.writeValueAsString(obj);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -86,8 +85,8 @@ class BringozApplicationTests {
 
     @Test
     void update() throws Exception {
-        String id = "";
-        String status = "";
+        String id;
+        String status;
         try {
             MockHttpServletResponse content = postTestDriver("Henry", 900, Optional.empty(), Optional.empty());
             JSONObject jsonObj = new JSONObject(content.getContentAsString());
@@ -112,7 +111,7 @@ class BringozApplicationTests {
 
     @Test
     void delete() throws Exception {
-        String id = "";
+        String id;
         try {
             MockHttpServletResponse content = postTestDriver("Matt", 500, Optional.empty(), Optional.empty());
             JSONObject jsonObj = new JSONObject(content.getContentAsString());

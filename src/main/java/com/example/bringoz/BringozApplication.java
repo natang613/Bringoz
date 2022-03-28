@@ -132,7 +132,10 @@ public class BringozApplication {
                                                   @RequestParam double long3, @RequestParam double lat3,
                                                   @RequestParam double long4, @RequestParam double lat4) {
 
-        // validating input
+        // validating input correctly
+        if (long1 > long4 || lat1 < lat2 || long2 > long3 || lat4 < lat3) {
+            return null;
+        }
 
         // getting 2 lists of options because firebase does not allow for multi field filtering
         ApiFuture<QuerySnapshot> querySnapshotApiFuture = db.collection("drivers")
